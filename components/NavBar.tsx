@@ -20,7 +20,6 @@ const navLinks = [
   {label: "New Recipe", href: "/new-recipe"},
 ]
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
@@ -64,7 +63,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            Dishlab
+            DishLab
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -120,7 +119,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            Dishlab
+            DishLab
           </Typography>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent: 'center'}}></Box>

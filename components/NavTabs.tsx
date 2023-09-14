@@ -40,7 +40,7 @@ interface INavLinkProps{
 }
 
 export default function NavTabs({links, containerSX}: INavLinkProps) {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(-1);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     // event.type can be equal to focus with selectionFollowsFocus.
