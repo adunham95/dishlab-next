@@ -12,6 +12,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { LogoSquare } from './logo';
+import NavTabs from './NavTabs';
+
+const navLinks = [
+  {label: "Products", href: "/products"},
+  {label: "Dashboard", href: "/dashboard"},
+  {label: "New Recipe", href: "/new-recipe"},
+]
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -89,9 +96,9 @@ function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {navLinks.map((page) => (
+                <MenuItem key={page.href} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -149,18 +156,9 @@ function NavBar() {
         </Toolbar>
       </Container>
     <Container maxWidth="xl">
-    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent: 'center'}}>
-    {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                color='secondary'
-                sx={{  display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-            </Box>
+    <NavTabs links={navLinks} containerSX={{display: { xs: 'none', md: 'flex' } , justifyContent: 'center'}}/>
+
+            
     </Container>
     </AppBar>
     </>

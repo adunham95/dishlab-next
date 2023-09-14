@@ -19,7 +19,7 @@ export const palette = {
         main: "#fff"
     },
     primary: {
-        main: '#85ff9a',
+        main: '#62b7fb',
     },
     secondary: {
         main: '#4c5d6d',
