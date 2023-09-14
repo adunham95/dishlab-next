@@ -1,16 +1,15 @@
-import NavBar from '@/components/NavBar'
-import React from 'react'
+import NavBar from '@/components/NavBar';
+import React from 'react';
 
-interface IDefaultLayoutProps {
-
-}
+interface IDefaultLayoutProps {}
 
 const DefaultLayout = (props: IDefaultLayoutProps) => {
-    return (
-        <>
-            <NavBar/>  
-        </>
-    )   
-}
+  const {} = props;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;

@@ -26,20 +26,15 @@ interface LinkTabProps {
 }
 
 function LinkTab(props: LinkTabProps) {
-  return (
-    <Tab
-      component="a"
-      {...props}
-    />
-  );
+  return <Tab component="a" {...props} />;
 }
 
-interface INavLinkProps{
-    links: LinkTabProps[];
-    containerSX?: SxProps
+interface INavLinkProps {
+  links: LinkTabProps[];
+  containerSX?: SxProps;
 }
 
-export default function NavTabs({links, containerSX}: INavLinkProps) {
+export default function NavTabs({ links, containerSX }: INavLinkProps) {
   const [value, setValue] = React.useState(-1);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -58,9 +53,9 @@ export default function NavTabs({links, containerSX}: INavLinkProps) {
   return (
     <Box sx={{ width: '100%', ...containerSX }}>
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        {
-            links.map(link => <LinkTab key={link.href} {...link} />)
-        }
+        {links.map((link) => (
+          <LinkTab key={link.href} {...link} />
+        ))}
       </Tabs>
     </Box>
   );
