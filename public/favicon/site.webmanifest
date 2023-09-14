@@ -1,0 +1,31 @@
+{
+    "name": "",
+    "short_name": "",
+    "icons": [
+        {
+            "src": "/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon/maskable_icon-x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "maskable":"any"
+        },
+        {
+            "src": "/favicon/maskable_icon-x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "maskable":"any"
+        }
+    ],
+    "theme_color": "#62b7fb",
+    "background_color": "#62b7fb",
+    "display": "standalone"
+}
