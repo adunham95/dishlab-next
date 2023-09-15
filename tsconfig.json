@@ -20,6 +20,6 @@
     "noImplicitThis": true,
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/cors.js", "graphql/resolvers.ts"],
   "exclude": ["node_modules"]
 }
