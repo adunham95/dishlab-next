@@ -1,33 +1,29 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { SxProps } from '@mui/material';
-
-function samePageLinkNavigation(
-  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-) {
-  if (
-    event.defaultPrevented ||
-    event.button !== 0 || // ignore everything but left-click
-    event.metaKey ||
-    event.ctrlKey ||
-    event.altKey ||
-    event.shiftKey
-  ) {
-    return false;
-  }
-  return true;
-}
+import { Button, ButtonProps, SxProps } from '@mui/material';
+import { Theme, styled } from '@mui/material/styles';
+import { useRouter } from 'next/router';
 
 interface LinkTabProps {
   label?: string;
   href?: string;
 }
 
-function LinkTab(props: LinkTabProps) {
-  return <Tab component="a" {...props} />;
-}
+const LinkButton = styled(Button)<ButtonProps>(
+  ({ theme }: { theme: Theme }) => ({
+    p: 1,
+    marginRight: 1,
+    margin: 1,
+    borderRadius: 0,
+    cursor: 'pointer',
+    color: theme.palette.secondary.main,
+    borderBottom: '3px solid transparent',
+    ':hover': {
+      color: theme.palette.primary.main,
+      borderColor: theme.palette.primary.main,
+    },
+  }),
+);
 
 interface INavLinkProps {
   links: LinkTabProps[];
@@ -35,28 +31,24 @@ interface INavLinkProps {
 }
 
 export default function NavTabs({ links, containerSX }: INavLinkProps) {
-  const [value, setValue] = React.useState(-1);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    // event.type can be equal to focus with selectionFollowsFocus.
-    if (
-      event.type !== 'click' ||
-      (event.type === 'click' &&
-        samePageLinkNavigation(
-          event as React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-        ))
-    ) {
-      setValue(newValue);
-    }
-  };
-
+  const router = useRouter();
   return (
     <Box sx={{ width: '100%', ...containerSX }}>
-      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        {links.map((link) => (
-          <LinkTab key={link.href} {...link} />
-        ))}
-      </Tabs>
+      {links.map((link) => (
+        <LinkButton
+          key={link.href}
+          variant="text"
+          href={link.href}
+          sx={{
+            color:
+              router.pathname === link.href ? 'primary.main' : 'secondary.main',
+            borderColor:
+              router.pathname === link.href ? 'primary.main' : 'transparent',
+          }}
+        >
+          {link.label}
+        </LinkButton>
+      ))}
     </Box>
   );
 }
