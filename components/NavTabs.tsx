@@ -3,10 +3,11 @@ import Box from '@mui/material/Box';
 import { Button, ButtonProps, SxProps } from '@mui/material';
 import { Theme, styled } from '@mui/material/styles';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface LinkTabProps {
   label?: string;
-  href?: string;
+  href: string;
 }
 
 const LinkButton = styled(Button)<ButtonProps>(
@@ -36,19 +37,22 @@ export default function NavTabs({ links, containerSX }: INavLinkProps) {
   return (
     <Box sx={{ width: '100%', ...containerSX }}>
       {links.map((link) => (
-        <LinkButton
-          key={link.href}
-          variant="text"
-          href={link.href}
-          sx={{
-            color:
-              router.pathname === link.href ? 'primary.main' : 'secondary.main',
-            borderColor:
-              router.pathname === link.href ? 'primary.main' : 'transparent',
-          }}
-        >
-          {link.label}
-        </LinkButton>
+        <Link key={link.href} passHref legacyBehavior href={link.href}>
+          <LinkButton
+            variant="text"
+            component={'a'}
+            sx={{
+              color:
+                router.pathname === link.href
+                  ? 'primary.main'
+                  : 'secondary.main',
+              borderColor:
+                router.pathname === link.href ? 'primary.main' : 'transparent',
+            }}
+          >
+            {link.label}
+          </LinkButton>
+        </Link>
       ))}
     </Box>
   );

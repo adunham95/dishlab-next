@@ -1,13 +1,16 @@
 import NavBar from '@/components/NavBar';
 import React from 'react';
 
-interface IDefaultLayoutProps {}
+interface IDefaultLayoutProps {
+  children: React.ReactNode;
+}
 
 const DefaultLayout = (props: IDefaultLayoutProps) => {
-  const {} = props;
+  const { children } = props;
   return (
     <>
       <NavBar />
+      {children}
     </>
   );
 };
