@@ -14,6 +14,7 @@ const LinkButton = styled(Button)<ButtonProps>(
     p: 1,
     marginRight: 1,
     margin: 1,
+    marginBottom: 0,
     borderRadius: 0,
     cursor: 'pointer',
     color: theme.palette.secondary.main,
